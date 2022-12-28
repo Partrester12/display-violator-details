@@ -3,6 +3,9 @@ package org.tn.model;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 
+/**
+ * Class representing all the data we want to keep on those who fly their drones too close to the bird-nest
+ */
 public class violatorDetails{
 
 

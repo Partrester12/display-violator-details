@@ -1,5 +1,8 @@
 package org.tn.model;
 
+/**
+ * Class that represents all the necessary information linked to a specific drone
+ */
 public class droneOwnerDetails {
 
     protected String pilotId;
