@@ -2,8 +2,10 @@ package org.tn.service;
 
 import org.tn.model.violatorDetails;
 
+import javax.inject.Singleton;
 import java.util.HashMap;
 
+@Singleton
 public class violatorDetailsService {
 
     private HashMap<String, violatorDetails> SerialnumberViolatorMap= new HashMap<>();

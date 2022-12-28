@@ -1,5 +1,6 @@
 package org.tn;
 
+import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.tn.model.Report;
 import org.tn.model.violatorDetails;
@@ -36,6 +37,7 @@ public class ViolatorsResource {
      * Then we create appropriate objects based on the information and utilize a HashMap to link the serial number to the information we've gotten.
      *
      */
+    @Operation(summary = "", description = "")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response get() {

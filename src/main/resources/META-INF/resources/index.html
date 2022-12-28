@@ -35,7 +35,7 @@ const formatViolatorData = (violator) => {
       const intervalID = setInterval(ajaxCall, 2000);
 
       function ajaxCall() {
-      fetch("/drones", { method: 'GET' })
+      fetch("/violators", { method: 'GET' })
         .then(Result => Result.json())
         .then(string => {
 
