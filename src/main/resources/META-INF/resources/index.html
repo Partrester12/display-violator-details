@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Bird-nest violator details</title>
+</head>
+<body>
+<div>
+    <ul id="names", style="list-style-type:none; display: inline-block;"></ul>
+    <ul id="numbers", style="list-style-type:none; display: inline-block;"></ul>
+    <ul id="emails", style="list-style-type:none; display: inline-block;"></ul>
+    <ul id="distances", style="list-style-type:none;  display: inline-block;"></ul>
+</div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/patternfly/3.24.0/js/patternfly.min.js"></script>^
+
+
+<script type="text/javascript">
+
+//Helper function that formats received violator data and returns an array with said information in a neater package
+const formatViolatorData = (violator) => {
+    return {
+          name: violator.pilotName,
+          phoneNumber: violator.phoneNumber,
+          email: violator.pilotEmail,
+          closestDistance: violator.closestDistance
+    }
+}
+
+      //Call the function before setInterval so that the user will immediately see list of the past 10 minutes instead of waiting for 2 seconds upon loading the page
+      ajaxCall();
+      const intervalID = setInterval(ajaxCall, 2000);
+
+      function ajaxCall() {
+      fetch("/drones", { method: 'GET' })
+        .then(Result => Result.json())
+        .then(string => {
+
+
+            //Temporary placeholder containing all the received violator data
+            const temp = string.map(formatViolatorData);
+
+            //Ugly but working way to have four lists that will display the relevant information neatly
+            const ul1 = document.getElementById("names");
+            const ul2 = document.getElementById("numbers");
+            const ul3 = document.getElementById("emails");
+            const ul4 = document.getElementById("distances");
+
+            ul1.innerHTML='';
+            ul2.innerHTML='';
+            ul3.innerHTML='';
+            ul4.innerHTML='';
+
+            //Inputting relevant violator information to the lists. Ugly, but gets the work done
+            for(const v of temp){
+                const li1 = document.createElement('li');
+                li1.innerHTML = v.name;
+                ul1.appendChild(li1);
+
+                const li2 = document.createElement('li');
+                li2.innerHTML = v.phoneNumber;
+                ul2.appendChild(li2);
+
+                const li3 = document.createElement('li');
+                li3.innerHTML = v.email;
+                ul3.appendChild(li3);
+
+                const li4 = document.createElement('li');
+                li4.innerHTML = v.closestDistance;
+                ul4.appendChild(li4);
+            }
+        })
+      }
+    </script>
+
+</html>
