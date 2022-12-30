@@ -2,6 +2,14 @@
 
 https://assignments.reaktor.com/birdnest/
 
+(Assignment details are also included as an HTML-file in this repo so that the goals of the project will be visible long after the assignment is over due)
+
+Deployed as a docker image to a Kubernetes cluster running on Oracle Cloud.
+
+Public IP-address: http://129.151.218.30/
+
+
+
 # display-violator-details Project
 
 
