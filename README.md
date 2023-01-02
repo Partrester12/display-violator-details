@@ -8,6 +8,13 @@ Deployed as a docker image to a Kubernetes cluster running on Oracle Cloud.
 
 Public IP-address: http://129.151.218.30/
 
+On the site the details are listed in the following order (from left-to-right):
+
+- Name of the violator
+- Phonenumber
+- E-mail address
+- Closest confirmed distance
+
 
 
 # display-violator-details Project
